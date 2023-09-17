@@ -1,0 +1,47 @@
+ul{
+    list-style: none;
+}
+.container{
+
+width: 70%;
+margin: auto;
+height: 100%;
+}
+#back-button{
+
+   
+    cursor: pointer;
+}
+.button{
+    box-shadow: 2px 2px 2px 2px gray;
+    margin-top: 5%;
+   width: 5%;
+   padding:5px 25px;
+   background-color: white;
+    
+    margin-bottom: 10%;
+    border-radius: 5%;
+    text-align: center;
+}
+#country{
+height:20%;
+}
+#details,#flag{
+    width: 40%;
+    height: 100%;
+}
+#details{
+    margin-left: 5%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+li{
+    margin-bottom: 10%;
+}
+#country,#info{
+    display: flex;
+    justify-content: space-between;
+  
+}
