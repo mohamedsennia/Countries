@@ -16,7 +16,13 @@ export class ConnectionSerivce{
         let response:countryInterface[]=[]
        
         for (const key in responseD){
-                response.push(responseD[key])
+          if(responseD[key].name.common=="Israel"){
+
+          }else{
+            response.push(responseD[key])
+          }
+               
+
             }
             
             return response
