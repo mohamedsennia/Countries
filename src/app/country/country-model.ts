@@ -1,17 +1,38 @@
 export class Country{
-    constructor(private name:String, private nativeName:String,private population:Number,private region:String,private subRegion:String,private capital:String,private domain:String,private currency:String,private languages:String[],private neighbors:String[],private image:String){
-
-    }
-
+     capital:string[]
+     currencies:{[key:string]:{"name":string,"symbol":string}}
+     flags:{"png":string,"svg":string,"alt":string}
+     languages:{[key:string]:string}
+     name:{"common":string,"nativeName":{[key:string]:{"offical":string,"common":string}}[],"official":string};
+     population:number;
+     region:String;
+     subregion:String
+     tld:string[]
+constructor(capital:string[],currencies:{[key:string]:{"name":string,"symbol":string}},flags:{"png":string,svg:string,"alt":string},languages:{[key:string]:string}, name:{"common":string,"nativeName":{[key:string]:{"offical":string,"common":string}}[],"official":string},population:number,region:String,subregion:String,tld:string[]){
+    this.capital=capital
+    this.currencies=currencies
+    this.flags=flags
+    this.languages=languages
+    this.name=name
+    this.population=population
+    this.region=region
+    this.subregion=subregion
+    this.tld=tld
+}
 getImage(){
    
-    return this.image;
+    return this.flags.png
 }
 getName(){
-    return this.name;
+    return this.name.common;
 }
 getNativeName(){
-    return this.nativeName;
+    for (const key in this.name.nativeName[0]) {
+        return this.name.nativeName[0][key]["common"]
+      }
+      return ""
+
+
 }
 getPopulation(){
     return this.population;
@@ -20,21 +41,21 @@ getRegion(){
     return this.region
 }
 getSubRegion(){
-    return this.subRegion;
+    return this.subregion;
 }
 getCapital(){
-    return this.capital;
+    return this.capital[0];
 }
 getDomain(){
-    return this.domain;
+    //return this.domain;
 }
 getCurrency(){
-    return this.currency
+    return this.currencies
 }
-getLanguages(){
+/*getLanguages(){
     return this.languages.slice();
-}
+}*/
 getNeighbors(){
-    return this.neighbors.slice();
+  // return this.neighbors.slice();
 }
 }

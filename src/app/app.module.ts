@@ -9,7 +9,8 @@ import { CountryItemComponent } from './main/country-item/country-item.component
 import { CountryComponent } from './country/country/country.component';
 import { MainPageComponent } from './main/main-page/main-page.component';
 import { AppRoutingModule } from './app-routing.model';
-
+import { HttpClientModule} from "@angular/common/http"
+import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,11 +19,15 @@ import { AppRoutingModule } from './app-routing.model';
     CountriesListComponent,
     CountryItemComponent,
     CountryComponent,
-    MainPageComponent
+    MainPageComponent,
+    
+    
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

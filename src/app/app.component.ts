@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ThemeService } from './theme-service';
+import { ConnectionSerivce } from './connection.service';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +10,8 @@ import { ThemeService } from './theme-service';
 export class AppComponent implements OnInit, OnDestroy{
   title = 'CountriesInfo';
   LightTheme:boolean;
-  constructor(private themeService:ThemeService){
+  constructor(private themeService:ThemeService, private connectionService:ConnectionSerivce){
+  
 this.LightTheme=true
   }
 

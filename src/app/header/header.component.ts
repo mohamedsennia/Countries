@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ThemeService } from '../theme-service';
+import { ConnectionSerivce } from '../connection.service';
 
 @Component({
   selector: 'app-header',
@@ -8,8 +9,10 @@ import { ThemeService } from '../theme-service';
 })
 export class HeaderComponent implements OnInit,OnDestroy{
   lightTheme:boolean;
-  constructor(private themeService:ThemeService){
+
+  constructor(private themeService:ThemeService,private connectionService:ConnectionSerivce){
     this.lightTheme=true
+
   }
   ngOnInit(): void {
     this.themeService.LightTheme.subscribe((value)=>{

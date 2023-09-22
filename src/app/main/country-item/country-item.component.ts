@@ -1,5 +1,7 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { CountriesService } from 'src/app/country/countries-service';
+import { countryInterface } from 'src/app/country/country-interface';
 import { Country } from 'src/app/country/country-model';
 import { ThemeService } from 'src/app/theme-service';
 
@@ -9,24 +11,30 @@ import { ThemeService } from 'src/app/theme-service';
   styleUrls: ['./country-item.component.css']
 })
 export class CountryItemComponent implements OnInit ,OnDestroy {
-@Input() id:number=0;
+
 image:String=""
-country:Country;
+@Input() country:countryInterface;
+ countryData:countryInterface;
 IsLight:boolean;
+themeSub:Subscription=new Subscription()
 constructor( private countriesService:CountriesService,private themeService:ThemeService){
-  this.country=new Country("","",0,"","","","","",[],[],"")
-  this.IsLight=true
+  this.country=new countryInterface();
+  this.countryData=new countryInterface()
+ 
+  this.IsLight=this.themeService.isLight
 }
 
 
   ngOnInit(): void {
-    this.country=this.countriesService.getCountry(this.id);
-    this.themeService.LightTheme.subscribe((value)=>{
+   
+   
+    this.countryData.setInterface(this.country)
+    this.themeSub=this.themeService.LightTheme.subscribe((value)=>{
       this.IsLight=value;
     })
   }
   ngOnDestroy(): void {
-    this.themeService.LightTheme.unsubscribe()
+    this.themeSub.unsubscribe()
   }
 getTheme(){
   if(this.IsLight){
@@ -36,8 +44,8 @@ getTheme(){
   }
 }
 getImage(){
-  this.image=this.country.getImage().replace('"','')
-   var style='background-image:url("'+this.image+'");'
+
+   var style='background-image:url("'+this.countryData.getPNGFlag()+'");'
   return style
 }
 }

@@ -1,24 +1,24 @@
 <div class="container">
-<div class="button" id="back-button"><i class="fa-solid fa-arrow-left"></i><span>Back</span></div>
-<div id="country">
-    <img id="flag" [src]="country.getImage()">
-    <div id="details">
-        <h2>{{country.getName()}}</h2>
+<div class="button" (click)="back()" id="back-button"><i class="fa-solid fa-arrow-left"></i><span>Back</span></div>
+<div id="country" >
+ <img id="flag" [src]="country.flags.png">
+    <div [style]="getTheme()" id="details">
+        <h2>{{this.country.name.common}}</h2>
         <div id="info">
             <ul>
-                <li><b>Native Name:</b> {{country.getNativeName()}}</li>
-                <li><b>Population: </b>{{country.getPopulation()}}</li>
-                <li><b>Region: </b>{{country.getRegion()}}</li>
-                <li><b>Sub Region: </b>{{country.getSubRegion()}}</li>
-                <li><b>Capital: </b>{{country.getCapital()}}</li>
+                <li><b>Native Name:</b> {{getNativeName()}}</li>
+                <li><b>Population: </b>{{this.country.population}}</li>
+                <li><b>Region: </b>{{this.country.region}}</li>
+                <li><b>Sub Region: </b>{{this.country.subregion}}</li>
+                <li><b>Capital: </b>{{this.country.capital}}</li>
             </ul>
             <ul>
-                <li><b>Top Level Domain: </b>{{country.getDomain()}}</li>
-                <li><b>Currncies: </b>{{country.getCurrency()}}</li>
-                <li><b>Languages: </b><span *ngFor="let language of country.getLanguages()" style=" margin-right: 10px;">{{language}}</span></li>
+                <li><b>Top Level Domain: </b><span *ngFor="let Domain of this.country.tld">{{Domain}}</span></li>
+                <li><b>Currncies: </b><span *ngFor="let currency of this.getCurrencies()">{{currency}}</span></li>
+                <li><b>Languages: </b><span *ngFor="let language of this.getLanguages()" style=" margin-right: 10px;">{{language}}</span></li>
             </ul>
         </div>
-        <div id="neighbors"><span *ngFor="let neighbor of country.getNeighbors()" class="button" style="margin-right: 15px;">{{neighbor}}</span></div>
+        
     </div>
 </div>
 </div>
