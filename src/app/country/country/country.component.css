@@ -1,14 +1,16 @@
 ul{
     list-style: none;
+    margin-right: 7%;
 }
 .container{
 
-width: 70%;
-margin: auto;
+
 height: 100vh;
+display: flex;
+justify-content: center;
 }
 #back-button{
-
+margin-left: 20%;
    
     cursor: pointer;
 }
@@ -25,23 +27,76 @@ height: 100vh;
 }
 #country{
 height:20%;
+width: 100%;
+display: flex;
+align-items: center;
+justify-content: center;
 }
-#details,#flag{
-    width: 40%;
+#flag{
     height: 100%;
+    width: 30%;
+    margin-left: 20%;
+}
+h2{
+    margin-bottom: 15px;
+}
+.items{
+    padding: 2px;
+    box-shadow: 10px 5px 5px gray;
+    border: 1px solid gray  ;
+    margin-right: 2px;
 }
 #details{
     margin-left: 5%;
     height: 100%;
+    width: 50%;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    font-size: 11pt;
 }
 li{
     margin-bottom: 10%;
 }
 #country,#info{
     display: flex;
-    justify-content: space-between;
-  
+    
 }
+@media only screen and (max-width: 1200px) {
+    #back-button{
+        margin-top: 5%;
+    }
+    .container{
+        margin-top: -4%;
+    }
+    #country{
+        height: 80%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+      justify-content: center;
+        }
+        #flag{
+            height: 100%;
+            width: 70%;
+            margin-left: 0%;
+        }
+        #details{
+            width: 70%;
+            text-align: center;
+          align-items: unset;
+        }
+        #info{
+         align-items: stretch;
+        }
+        ul{
+            list-style: none;
+          
+            width: 50%;
+            margin: auto;
+        }
+        li{
+            margin-bottom: 5%;
+        }
+        .items{display: inline-block; margin-bottom: 4%;}
+  }

@@ -14,6 +14,7 @@ import { ThemeService } from 'src/app/theme-service';
 export class CountryComponent implements OnInit{
 id:number=0;
 country:Country
+loading:boolean=true
 constructor(private countriesService:CountriesService, private route:ActivatedRoute,private connectionService:ConnectionSerivce, private location: Location,private themeSerivce:ThemeService){
   this.country=new Country([],{"":{"name":"","symbol":""}},{"png":"https://upload.wikimedia.org/wikipedia/commons/a/a7/Blank_image.jpg","svg":"str","alt":"str"},{"ar":""},{"common":"string","nativeName":[{"":{"offical":"","common":""}}],"official":"string"},0,"","",[])
  
@@ -21,12 +22,13 @@ constructor(private countriesService:CountriesService, private route:ActivatedRo
 }
   ngOnInit(): void {
 this.route.params.subscribe(params=>{
+  this.loading=true;
   this.connectionService.getCountryByName(params["name"]).subscribe(param=>{
       /* */
 
 
    this.country=param;
-   
+   this.loading=false
     
   })
 

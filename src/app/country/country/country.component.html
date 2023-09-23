@@ -1,7 +1,8 @@
-<div class="container">
 <div class="button" (click)="back()" id="back-button"><i class="fa-solid fa-arrow-left"></i><span>Back</span></div>
-<div id="country" >
- <img id="flag" [src]="country.flags.png">
+<div class="container">
+
+<div id="country" *ngIf="!loading">
+ <img id="flag" [src]="country.flags.svg">
     <div [style]="getTheme()" id="details">
         <h2>{{this.country.name.common}}</h2>
         <div id="info">
@@ -14,8 +15,8 @@
             </ul>
             <ul>
                 <li><b>Top Level Domain: </b><span *ngFor="let Domain of this.country.tld">{{Domain}}</span></li>
-                <li><b>Currncies: </b><span *ngFor="let currency of this.getCurrencies()">{{currency}}</span></li>
-                <li><b>Languages: </b><span *ngFor="let language of this.getLanguages()" style=" margin-right: 10px;">{{language}}</span></li>
+                <li><b>Currncies: </b><span class="currency items" *ngFor="let currency of this.getCurrencies()">{{currency}}</span></li>
+                <li><b>Languages: </b><span class="language items" *ngFor="let language of this.getLanguages()" style=" margin-right: 10px;">{{language}}</span></li>
             </ul>
         </div>
         
