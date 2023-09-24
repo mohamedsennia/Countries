@@ -17,3 +17,17 @@
     padding: 1%;
     
 }
+@media only screen and (max-width: 1200px) {
+    #search{
+        flex-direction: column;
+    }
+    #Search-name{
+        width: 90%;
+        margin-bottom: 10%;
+    }
+    #Search-region{
+        width: 40%;
+     
+        
+    }
+  }

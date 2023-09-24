@@ -1,4 +1,4 @@
-<div class="button" (click)="back()" id="back-button"><i class="fa-solid fa-arrow-left"></i><span>Back</span></div>
+<div class="button" (click)="back()" id="back-button"><i class="fa-solid fa-arrow-left"></i>      <span>Back</span></div>
 <div class="container">
 
 <div id="country" *ngIf="!loading">
@@ -7,16 +7,16 @@
         <h2>{{this.country.name.common}}</h2>
         <div id="info">
             <ul>
-                <li><b>Native Name:</b> {{getNativeName()}}</li>
-                <li><b>Population: </b>{{this.country.population}}</li>
-                <li><b>Region: </b>{{this.country.region}}</li>
-                <li><b>Sub Region: </b>{{this.country.subregion}}</li>
-                <li><b>Capital: </b>{{this.country.capital}}</li>
+                <li><span class="subtitle">Native Name:</span> {{getNativeName()}}</li>
+                <li><span class="subtitle">Population: </span>{{this.country.population}}</li>
+                <li><span class="subtitle">Region: </span>{{this.country.region}}</li>
+                <li><span class="subtitle">Sub Region: </span>{{this.country.subregion}}</li>
+                <li><span class="subtitle">Capital: </span>{{this.country.capital}}</li>
             </ul>
             <ul>
-                <li><b>Top Level Domain: </b><span *ngFor="let Domain of this.country.tld">{{Domain}}</span></li>
-                <li><b>Currncies: </b><span class="currency items" *ngFor="let currency of this.getCurrencies()">{{currency}}</span></li>
-                <li><b>Languages: </b><span class="language items" *ngFor="let language of this.getLanguages()" style=" margin-right: 10px;">{{language}}</span></li>
+                <li><span class="subtitle">Top Level Domain: </span><span *ngFor="let Domain of this.country.tld">{{Domain}}</span></li>
+                <li><span class="subtitle">Currncies: </span><span class="currency" *ngFor="let currency of this.getCurrencies()">{{currency}}, </span></li>
+                <li><span class="subtitle">Languages: </span><span class="language" *ngFor="let language of this.getLanguages()" style=" margin-right: 10px;">{{language}}, </span></li>
             </ul>
         </div>
         
