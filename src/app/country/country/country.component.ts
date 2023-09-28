@@ -15,10 +15,10 @@ export class CountryComponent implements OnInit{
 id:number=0;
 country:Country
 loading:boolean=true
+neighbors:string[]
 constructor(private countriesService:CountriesService, private route:ActivatedRoute,private connectionService:ConnectionSerivce, private location: Location,private themeSerivce:ThemeService){
-  this.country=new Country([],{"":{"name":"","symbol":""}},{"png":"https://upload.wikimedia.org/wikipedia/commons/a/a7/Blank_image.jpg","svg":"str","alt":"str"},{"ar":""},{"common":"string","nativeName":[{"":{"offical":"","common":""}}],"official":"string"},0,"","",[])
- 
- 
+  this.country=new Country([],{"":{"name":"","symbol":""}},{"png":"https://upload.wikimedia.org/wikipedia/commons/a/a7/Blank_image.jpg","svg":"str","alt":"str"},{"ar":""},{"common":"string","nativeName":[{"":{"offical":"","common":""}}],"official":"string"},0,"","",[],[])
+  this.neighbors=[]
 }
   ngOnInit(): void {
 this.route.params.subscribe(params=>{
@@ -29,10 +29,18 @@ this.route.params.subscribe(params=>{
 
    this.country=param;
    this.loading=false
-    
+    for(let border of this.country.borders){
+ 
+  this.connectionService.getNameByCode(border).subscribe(param=>{
+  
+    this.neighbors.push(param)
+  })
+}
   })
 
 })
+
+
   }
   getCurrencies(){
    let currencies:string[]=[];
@@ -69,4 +77,5 @@ this.route.params.subscribe(params=>{
       return  "color:white"
     }
   }
+
 }

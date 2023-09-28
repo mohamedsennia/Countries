@@ -19,8 +19,12 @@
                 <li><span class="subtitle">Languages: </span><span class="language" *ngFor="let language of this.getLanguages()" style=" margin-right: 10px;">{{language}}, </span></li>
             </ul>
         </div>
+        <div>
+            <span class="items" *ngFor="let neighbor of neighbors">{{neighbor}}</span>
+        </div>
         
     </div>
+    
 </div>
 </div>
 

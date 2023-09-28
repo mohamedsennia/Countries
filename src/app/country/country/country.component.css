@@ -45,10 +45,11 @@ h2{
     margin-bottom: 15px;
 }
 .items{
-    padding: 2px;
+    padding: 4px;
     box-shadow: 10px 5px 5px gray;
     border: 1px solid gray  ;
-    margin-right: 2px;
+    margin-right: 10px;
+
 }
 #details{
     margin-left: 5%;
@@ -140,10 +141,8 @@ li{
             margin-bottom: 4%;
         }
         ul{
-            margin-bottom: 15%;
+            margin-bottom: 10%;
         }
         .items{display: inline-block; margin-bottom: 4%;}
-        h2{
-            margin-bottom: -5%;
-        }
+      
   }

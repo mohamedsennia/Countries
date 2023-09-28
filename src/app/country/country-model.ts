@@ -8,7 +8,10 @@ export class Country{
      region:String;
      subregion:String
      tld:string[]
-constructor(capital:string[],currencies:{[key:string]:{"name":string,"symbol":string}},flags:{"png":string,svg:string,"alt":string},languages:{[key:string]:string}, name:{"common":string,"nativeName":{[key:string]:{"offical":string,"common":string}}[],"official":string},population:number,region:String,subregion:String,tld:string[]){
+     borders:string[]
+constructor(capital:string[],currencies:{[key:string]:{"name":string,"symbol":string}},flags:{"png":string,svg:string,"alt":string},languages:{[key:string]:string}, name:{"common":string,"nativeName":{[key:string]:{"offical":string,"common":string}}[],"official":string},population:number,region:String,subregion:String,tld:string[],borders:string[]
+
+){
     this.capital=capital
     this.currencies=currencies
     this.flags=flags
@@ -18,6 +21,7 @@ constructor(capital:string[],currencies:{[key:string]:{"name":string,"symbol":st
     this.region=region
     this.subregion=subregion
     this.tld=tld
+    this.borders=borders;
 }
 getImage(){
    
@@ -56,6 +60,7 @@ getCurrency(){
     return this.languages.slice();
 }*/
 getNeighbors(){
-  // return this.neighbors.slice();
+   console.log(this.borders);
+   return this.borders;
 }
 }

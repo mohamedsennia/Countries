@@ -9,7 +9,7 @@ import { Country } from "./country/country-model";
 })
 export class ConnectionSerivce{
     constructor(private httpClient:HttpClient,private countriesService:CountriesService){
-      this.trying()
+     
     }
     getAll(){
        return this.httpClient.get<countryInterface[]>("https://restcountries.com/v3.1/all?&fields=name,capital,region,flags,population").pipe(map((responseD)=>{
@@ -35,14 +35,15 @@ export class ConnectionSerivce{
             let response:countryInterface[]=[]
             for (const key in responseD){
                     response.push(responseD[key])
+                    
                 }
             
                 return response
             }))
     }
     getCountryByName(name:string){
-      return  this.httpClient.get<Country[]>("https://restcountries.com/v3.1/name/"+name+"?&fields=name,capital,region,flags,population,subregion,languages,currencies,tld").pipe(map(param=>{
-       
+      return  this.httpClient.get<Country[]>("https://restcountries.com/v3.1/name/"+name+"?&fields=name,capital,region,flags,population,subregion,languages,currencies,tld,borders").pipe(map(param=>{
+        console.log(param[0])
         return param[0];
       }))
     }
@@ -51,4 +52,12 @@ export class ConnectionSerivce{
         console.log(param)
       })
     }
+    getNameByCode(code:string){
+      return this.httpClient.get<{[key:string]:{"common":string,"official":string,nativeName:any}}>("https://restcountries.com/v3.1/alpha/"+code+"?&fields=name").pipe(map(param=>{
+         for (const property in param) {
+           return param[property].common
+         }
+         return ""
+       }))
+     }
 }
