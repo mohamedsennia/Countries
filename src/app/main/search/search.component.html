@@ -1,0 +1,8 @@
+<form (change)="regionChanged()" id="search"  [formGroup]="form">
+    <input (keyup)="search()" formControlName="Search-name" [style]="getTheme()" name ="Search-name" id="Search-name" type="text" placeholder="Search for a country">
+    <select formControlName="Search-region" [style]="getTheme()"  def name="Search-region" id="Search-region">
+        
+        <option name="region"  *ngFor="let region of regions" [ngValue]="region">{{region}}</option>
+
+    </select>
+</form>

@@ -1,0 +1,30 @@
+<div class="button" (click)="back()" id="back-button"><i class="fa-solid fa-arrow-left"></i>      <span>Back</span></div>
+<div class="container">
+
+<div id="country" *ngIf="!loading">
+ <img id="flag" [src]="country.flags.svg">
+    <div [style]="getTheme()" id="details">
+        <h2>{{this.country.name.common}}</h2>
+        <div id="info">
+            <ul>
+                <li><span class="subtitle">Native Name:</span> {{getNativeName()}}</li>
+                <li><span class="subtitle">Population: </span>{{this.country.population}}</li>
+                <li><span class="subtitle">Region: </span>{{this.country.region}}</li>
+                <li><span class="subtitle">Sub Region: </span>{{this.country.subregion}}</li>
+                <li><span class="subtitle">Capital: </span>{{this.country.capital}}</li>
+            </ul>
+            <ul>
+                <li><span class="subtitle">Top Level Domain: </span><span *ngFor="let Domain of this.country.tld">{{Domain}}</span></li>
+                <li><span class="subtitle">Currncies: </span><span class="currency" *ngFor="let currency of this.getCurrencies()">{{currency}}, </span></li>
+                <li><span class="subtitle">Languages: </span><span class="language" *ngFor="let language of this.getLanguages()" style=" margin-right: 10px;">{{language}}, </span></li>
+            </ul>
+        </div>
+        <div>
+            <span class="items" *ngFor="let neighbor of neighbors">{{neighbor}}</span>
+        </div>
+        
+    </div>
+    
+</div>
+</div>
+

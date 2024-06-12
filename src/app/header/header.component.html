@@ -1,0 +1,5 @@
+<nav [style]="getTheme()">
+    <h2 style="cursor: pointer;" [routerLink]="['']" mode>Where in the world ?</h2>
+    <span (click)="toggleTheme()" class="mode" *ngIf="lightTheme"><i class="fa-regular fa-moon"></i> Dark Mode</span>
+    <span class="mode" (click)="toggleTheme()" id="Mode" *ngIf="!lightTheme"><i  class="mode" class="fa-regular fa-moon"></i> Light Mode</span>
+</nav>

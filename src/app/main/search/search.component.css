@@ -1,0 +1,33 @@
+#search{
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+    margin: 2% auto 0% auto;
+}
+#Search-name{
+    padding: 5px; 
+    width: 30%;  
+    border-radius: 5%;
+    border-color: grey;
+    border-width: 1px;
+    box-shadow: 10px 5px 5px gray;
+}
+#Search-region{
+    width: 20%;
+    padding: 1%;
+    
+}
+@media only screen and (max-width: 1200px) {
+    #search{
+        flex-direction: column;
+    }
+    #Search-name{
+        width: 90%;
+        margin-bottom: 10%;
+    }
+    #Search-region{
+        width: 40%;
+     
+        
+    }
+  }

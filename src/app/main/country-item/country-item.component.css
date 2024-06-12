@@ -1,0 +1,45 @@
+.item-image{
+    background-size:cover;
+    background-repeat: no-repeat;
+    height: 50%;
+    width: 100%;
+    background-position: center;
+}
+.item{
+ background-color: white;
+    height: 350px;
+    
+    
+    cursor: pointer;
+}
+.item * {
+    background-color: white;
+}
+.item-description{
+    display: flex;
+    flex-direction: column;
+    padding: 5% 10%;
+    background-color: inherit !important;
+    justify-content: end;
+}
+h3{
+    margin-bottom: 10%;
+    background-color: inherit!important;
+    font-size: 13pt;
+
+}
+.disc{
+    margin-bottom: 1%;
+    background-color: inherit !important;
+
+
+}
+b{
+    background-color: inherit !important;
+}
+.info{
+    display: flex;
+    flex-direction: column;
+    background-color: inherit !important;
+
+}
